@@ -1,4 +1,10 @@
 // https://docs.microsoft.com/en-gb/azure/azure-functions/functions-host-json
 {
-  "functions": ["httpfunction"]
+  "functions": ["httpfunction"],
+  "http": {
+    "routePrefix": "api",
+    "maxOutstandingRequests": 20,
+    "maxConcurrentRequests": 5,
+    "dynamicThrottlesEnabled": false
+  }
 }
