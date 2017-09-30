@@ -1,7 +1,14 @@
 import os
 import json
 
-print "Test"
+get_args = None
+
+for var in os.environ:
+    if var.startswith("REQ_QUERY_"):
+        get_args = os.environ[var]
+
+print "Get Args", get_args
+
 
 returnData = {
     #HTTP Status Code:
