@@ -1,11 +1,11 @@
-//https://github.com/Azure/azure-webjobs-sdk-script/wiki/function.json
 {
   "bindings": [
     {
+      "name": "req",
       "type": "httpTrigger",
       "direction": "in",
-      "name": "req",
-      "authLevel": "anonymous"
+      "authLevel": "anonymous",
+      "route": "httpFunction"
     },
     {
       "type": "http",
