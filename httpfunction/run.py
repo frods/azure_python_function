@@ -1,6 +1,8 @@
 import os
 import json
 
+import response
+
 get_arg_prefix = "REQ_QUERY_"
 get_args = {}
 
@@ -10,20 +12,5 @@ for var in os.environ:
 
 print "Get Args", get_args
 
-
-returnData = {
-    #HTTP Status Code:
-    "status": 200,
-    
-    #Response Body:
-    "body": "<h1>Azure Works :) {}</h1>".format(get_args.get("name", "")),
-    
-    # Send any number of HTTP headers
-    "headers": {
-        "Content-Type": "text/html",
-        "X-Awesome-Header": "YesItIs"
-    }
-}
-
 output = open(os.environ['res'], 'w')
-output.write(json.dumps(returnData))
+output.write(json.dumps(response.makeResponse(get_args)))
